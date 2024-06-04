@@ -23,6 +23,14 @@ add_routes(
 )
 model = ChatOpenAI()
 
+prompt1 = ChatPromptTemplate.from_template("Write a poem about {topic} within 100 words")
+
+add_routes(
+    app,
+    prompt1|model,
+    path="/essay"
+)
+
 
 #checks if imported or not
 if __name__ == "__main__": 
